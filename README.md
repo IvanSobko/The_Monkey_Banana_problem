@@ -10,4 +10,4 @@ the floor, climb the box, push the box around (if it is already at the box) and
 grab the banana if standing on the box directly under the banana. Can the
 monkey get the banana?
 
-The solution was takken from this [article](http://people.uncw.edu/narayans/courses/csc434/monkey.pdf), originally written in Prolog and adapted to C++.
+The solution was taken from this [article](http://people.uncw.edu/narayans/courses/csc434/monkey.pdf), originally written in Prolog and adapted to C++.
