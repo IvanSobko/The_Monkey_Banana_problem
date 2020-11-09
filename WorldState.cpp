@@ -107,7 +107,7 @@ std::vector<std::string> WorldState::getStates()
 {
     return stateStack;
 }
-bool WorldState::isSuccess()
+bool WorldState::isSuccess() const
 {
     return success;
 }

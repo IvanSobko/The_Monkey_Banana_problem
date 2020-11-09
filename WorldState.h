@@ -29,7 +29,7 @@ public:
     void doProcess();
     std::vector<std::string> getPlan();
     std::vector<std::string> getStates();
-    bool isSuccess();
+    bool isSuccess() const;
 
 private:
     void grab();
