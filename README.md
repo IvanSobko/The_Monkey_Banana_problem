@@ -1,5 +1,5 @@
 # The Monkey and Banana problem
-This repo contains solution to "The monkey and banana problem", written  in C++. The program was developed in the procedural way, and then wrapped it's main functions in class.
+This repo contains solution to "The monkey and banana" problem, written  in C++. The program was developed in the procedural way, and then wrapped into a class.
 
 The problem can be described as:
 > There is a monkey at the door into a room. tn the middle of the room a banana is hanging from the
