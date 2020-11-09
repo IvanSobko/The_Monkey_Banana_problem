@@ -35,15 +35,17 @@ void WorldState::grab()
 }
 void WorldState::climb()
 {
-    funcStack.emplace_back(__func__);
+    std::string func(__func__ );
     if (monkeyHorizontal == atBox){
         if (monkeyVertical == onFloor){
+            func += "_up";
             monkeyVertical = onBox;
         } else {
+            func += "_down";
             monkeyVertical = onFloor;
         }
-
     }
+    funcStack.emplace_back(func);
 }
 void WorldState::walk(WorldState::HorizontalMonkey newPos)
 {
@@ -61,36 +63,39 @@ void WorldState::push(WorldState::Box to)
 }
 void WorldState::doProcess()
 {
+    // Recursion safe counter. Since program is very little, recursion shouldn't be deeper than 20-30 levels
     static int safeCounter = 0;
-    if (safeCounter > 50) {
+    if (safeCounter > 25) {
         success = false;
         return;
     }
 
     stateStack.push_back(toString());
 
+
+    // Now we have to check world states, and take actions according to these states.
+    // Firstly we check if we have a banana, to go out of recursion.
     if (hasBanana){
         success = true;
         return;
     }
 
+    // Secondly, we check from the best states (e.g. can get the banana),
+    // going down to least favourable states (e.g. need to make many moves to grab a banana).
     if (boxPos == underBanana){
         if (monkeyVertical == onBox){
-            //grab
             grab();
         } else if (monkeyHorizontal == atBox){
-            climb();
+            climb(); //climb up
         } else{
-            //walk
             walk(atBox);
         }
     } else {
-        //walk or push
         if (monkeyHorizontal == atBox){
             if (monkeyVertical == onFloor){
                 push(underBanana);
             } else {
-                climb();
+                climb(); //climb down
             }
         } else {
             walk(atBox);

@@ -24,13 +24,13 @@ void testCases(){
     };
 
     std::vector<std::vector<std::string>> expectedPlans = {
-            {"walk","push","climb","grab"},
-            {"push","climb","grab"},
-            {"climb","push","climb","grab"},
-            {"climb","grab"},
+            {"walk","push","climb_up","grab"},
+            {"push","climb_up","grab"},
+            {"climb_down","push","climb_up","grab"},
+            {"climb_up","grab"},
             {},
             {"grab"},
-            {"walk","climb","grab"}
+            {"walk","climb_up","grab"}
     };
 
     for(int i = 0; i < states.size(); i++){

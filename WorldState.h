@@ -40,7 +40,7 @@ private:
     HorizontalMonkey monkeyHorizontal;
     VerticalMonkey monkeyVertical;
     Box boxPos;
-    bool hasBanana;
+    bool hasBanana = false;
 
     bool success = false;
     std::vector<std::string> funcStack;
